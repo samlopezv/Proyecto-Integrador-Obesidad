@@ -1,43 +1,48 @@
-def lectura_nombres():
-    nombres=[]
-    ap_pats=[]
-    ap_mats=[]
+def imc(nombre):
+    print('Calculadora de IMC')
+    peso = float(input('Ingresa tu peso en kg: '))
+    estatura = float(input('Ingresa tu estatura en metros: '))
+    imc = round(peso/ estatura**2,1)
+    print(f'{nombre} tu IMC es de {imc}')
 
-    for i in range(5):
-        print("Lectura de nombres a grabar en archivo")
-        print("--------------------------------------")
-        print("Alumno->", i+1)
 
-        nombre = input("Nombre:")
-        ap_pat = input("Apellido Paterno:")
-        ap_mat = input("Apellido Materno:")
+    #Tipos de peso
+    if imc < 18.5 :
+        print('Lo que significa que tienes un bajo peso')
+    elif imc < 25:
+        print('Lo que significa que tienes un peso saludable')
+    elif imc < 30:
+        print('Lo que significa que tienes sobrepeso')
+    elif imc < 35:
+        print('Lo que significa que tienes obesidad I')
+    elif imc < 40:
+        print('Lo que significa que tienes obesidad II')
+    elif imc < 50:
+        print('Lo que significa que tienes obesidad III')
+    else:
+        print('Lo que significa que tienes obesidad IV')
 
-        nombres.append(nombre)
-        ap_pats.append(ap_pat)
-        ap_mats.append(ap_mat)
+def graficas():
+    
 
-    print("Todos los nombres=", nombres)
-    print("Todos los apellidos paternos=", ap_pats)
-    print("Todos los apellidos maternos=", ap_mats)
 
-    return nombres, ap_pats, ap_mats
-
-def grabar_datos():
-    nombres, ap_pats, ap_mats = lectura_nombres()
-
-    print("Grabando datos ...")
-    print("------------------")
-
-    print("Todos los nombres y apellidos con zip= ", list(zip(nombres, ap_pats, ap_mats)))
-
-    with open('/workspace/ej-Archivos/assignments/00Archivos/data/personas.csv', 'w') as f:
-        f.write("NOMBRE,APELLIDO PATERNO,APELLIDO MATERNO\n")  
-        for nombre, ap_pat, ap_mat in zip(nombres, ap_pats, ap_mats):
-            print("Grabando ..." + nombre+"," + ap_pat + "," + ap_mat)
-            f.write(nombre+"," + ap_pat + "," + ap_mat + "\n")
 
 def main():
-    grabar_datos()
+    nombre = (input('Ingresa tu nombre: '))
+    print(f'¡Hola {nombre}! ¿qué deseas conocer?')
+    print('IMC= 1     Gráficas=2     Salir=3')
+    num = int(input())
+    if num == 1:
+        imc(nombre)
+        nombre = num
+    elif num == 2:
+        print('Gráficas')
+    elif num == 3:
+        print('Gracias por tu visita')
+    else:
+        #editar para que siga pidiendo y redirija
+            print('Favor de ingresar un dato válido')
+
 
 if __name__=='__main__':
     main()

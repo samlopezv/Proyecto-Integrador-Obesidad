@@ -1,4 +1,4 @@
-def grafica_mundo():
+def grafica_mundo(num):
     xpaises=[]
     y2sex=[]
     dato=[]
@@ -11,10 +11,14 @@ def grafica_mundo():
             y2sex.append(dato[1])
 
     print('\n')
-    print('Salir Enter')
+    print('Volver al menú Enter')
+    enter = input()
+    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
+    numnuevo = int(input())
+    return(numnuevo)
     return()
 
-def grafica_mexico():
+def grafica_mexico(num):
     xregion=[]
     ysobrepeso=[]
     yobesidad=[]
@@ -27,33 +31,13 @@ def grafica_mexico():
             ysobrepeso.append(dato[1])
             yobesidad.append(dato[2])
 
-
-def graficas(nombre,num):
-    print('¿Qué gráfica deseas conocer?')
-    print('Mundo=1     México=2      Salir=3')
-    num = int(input())
-
-    while num != 3:
-        if num == 1:
-            varmundo = grafica_mundo()
-            print('Gráfica México=2     Salir =3')
-            num=int(input())
-
-        elif num == 2:
-            g = graficas()
-        else:
-            print('Favor de ingresar un dato válido')
-            num = int(input())
-            if num != 1 or num !=2 or num !=3:
-                num = num
-            else:
-                num = 4
-            while num == 4:
-                print('Favor de ingresar un dato válido')
-                num = int(input())
-
-
-
+    print('\n')
+    print('Volver al menú Enter')
+    enter = input()
+    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
+    numnuevo = int(input())
+    return(numnuevo)
+    return()
 
 
 def imc(nombre, num):
@@ -64,20 +48,11 @@ def imc(nombre, num):
     imc = round(peso/ estatura**2,1)
     print(f'{nombre} tu IMC es de {imc}')
 
-
     #Tipos de peso
     if imc < 18.5 :
         a=[]
         print('Lo que significa que tienes un bajo peso')
-
-        #Comidas
-        print("Opciones de comidas: ")
-        a = [['       ','Lunes','Martes','Miercoles','Viernes'],
-        ['Desayuno','Huevos con jamón','colache','Calabazas a la mexica','Yogurt sin azucar con fruta'],
-        ['Comida  ','Caldo de pollo','Ceviche','Carne con verduras','Caldo de res','ensalda de atún'],
-        ['Cena','Tacos de queso fresco','Avena','sandwinch de jamón','Rollitos de primavera','frijol con queso']]
-        print (a)
-
+        
 
     elif imc < 25:
         print('Lo que significa que tienes un peso saludable')
@@ -92,7 +67,9 @@ def imc(nombre, num):
     else:
         print('Lo que significa que tienes obesidad IV')
     print('\n')
-    print('IMC= 1     Gráficas=2     Salir=3')
+    print('Volver al menú Enter')
+    enter = input()
+    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
     numnuevo = int(input())
     return(nombre, numnuevo)
 
@@ -101,25 +78,30 @@ def main():
     nombre = (input('Ingresa tu nombre: '))
     print('\n')
     print(f'¡Hola {nombre}! ¿qué deseas conocer?')
-    print('IMC= 1     Gráficas=2     Salir=3')
+    print('IMC= 1     Gráficax=2        Gráficaxx=3    Salir=4')
     num = int(input())
-    while num != 3:
+    while num != 4:
         if num == 1:
             variableimc = imc(nombre, num)
             num = variableimc[1]
         elif num == 2:
-            g = graficas(nombre,num)
+            g = grafica_mexico(num)
+            num = g
+        elif num == 3:
+            g = grafica_mundo(num)
+            num = g
         else:
             print('Favor de ingresar un dato válido')
             num = int(input())
-            if num != 1 or num !=2 or num !=3:
+            if num != 1 or num !=2 or num !=3 or num != 4:
                 num = num
             else:
-                num = 4
-            while num == 4:
+                num = 5
+            while num == 5:
                 print('Favor de ingresar un dato válido')
                 num = int(input())
-        
+                
+    print('\n')   
     print('Gracias por tu visita')
 
 

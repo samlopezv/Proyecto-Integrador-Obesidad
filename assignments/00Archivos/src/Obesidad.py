@@ -1,14 +1,31 @@
+from matplotlib import pyplot as plt
 def grafica_mundo(num):
-    xpaises=[]
-    y2sex=[]
+    paises=[]
+    sexes=[]
+    male=[]
+    female=[]
     dato=[]
 
-    with open ('/workspace/Proyecto-Integrador-Obesidad/assignments/00Archivos/data/Obesidad en el mundo.csv', 'r') as mundo:
+    with open ('/workspace/Proyecto-Integrador-Obesidad/assignments/00Archivos/data/Sobrepeso en América 2016.csv', 'r') as america:
        #Gráfica mundo 2016 2 sexos
-        for line in mundo:
+        for line in america:
             dato = line.split(',')
-            xpaises.append(dato[0])
-            y2sex.append(dato[1])
+            paises.append(dato[0])
+            sexes.append(dato[1])
+            male.append(dato[2])
+            female.append(dato[3])
+
+    paises.pop(0)
+    sexes.pop(0)
+    male.pop(0)
+    female(0)
+
+    for dato in range (len(sexes)):
+        porcentje = (male[i]*sexes[i])/(male[i]+female[i])
+        porcentajemale.append(porcentaje)
+        porcentje = (female[i]*sexes[i])/(male[i]+female[i])
+        porcentajefemale.append(porcentaje)
+
 
     print('\n')
     print('Volver al menú Enter')

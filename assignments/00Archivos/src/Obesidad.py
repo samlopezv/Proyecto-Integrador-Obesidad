@@ -1,13 +1,18 @@
 from matplotlib import pyplot as plt
-def grafica_mundo(num):
+from matplotlib import numpy as np
+
+def grafica_america(num):
     paises=[]
     sexes=[]
     male=[]
+    porcentajemale=[]
+    porcentaje = 0
     female=[]
+    porcentajefemale=[]
     dato=[]
 
     with open ('/workspace/Proyecto-Integrador-Obesidad/assignments/00Archivos/data/Sobrepeso en América 2016.csv', 'r') as america:
-       #Gráfica mundo 2016 2 sexos
+       #Matrices para cada colmna
         for line in america:
             dato = line.split(',')
             paises.append(dato[0])
@@ -15,25 +20,41 @@ def grafica_mundo(num):
             male.append(dato[2])
             female.append(dato[3])
 
+    #Quitar los títulos de las matrices
     paises.pop(0)
     sexes.pop(0)
     male.pop(0)
-    female(0)
+    female.pop(0)
 
-    for dato in range (len(sexes)):
-        porcentje = (male[i]*sexes[i])/(male[i]+female[i])
+    #Operaciones de porcentajes entre las matrices
+    for i in range (len(sexes)):
+        porcentaje = ( float(male[i]) * float(sexes[i])) / ( float(male[i]) + float(female[i]))
         porcentajemale.append(porcentaje)
-        porcentje = (female[i]*sexes[i])/(male[i]+female[i])
+        porcentaje = ( float(female[i]) * float(sexes[i])) / ( float(male[i]) + float(female[i]))
         porcentajefemale.append(porcentaje)
 
+    #Código para la gráfica
+    indice = np.arange(len(paises))
+ 
+    #Creación de barras
+    plt.bar(indice, porcentajemale, label='Hombres')
+    plt.bar(indice, porcentajefemale, label='Mujeres',  bottom=porcentajemale)
+ 
+    plt.xticks(indice, paises)
+    plt.ylabel("Porcentaje")
+    plt.xlabel("Paises")
+    plt.title('Sobrepeso en América 2016')
+    plt.legend()
+    plt.savefig('grafico_america.png') 
+    plt.show()
 
+    #Regresar al menú
     print('\n')
     print('Volver al menú Enter')
     enter = input()
     print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
     numnuevo = int(input())
     return(numnuevo)
-    return()
 
 def grafica_mexico(num):
     xregion=[]
@@ -58,6 +79,7 @@ def grafica_mexico(num):
 
 
 def imc(nombre, num):
+    #Pide datos para calcular el IMC
     print('\n')
     print('Calculadora de IMC')
     peso = float(input('Ingresa tu peso en kg: '))
@@ -195,11 +217,14 @@ def imc(nombre, num):
 
 
 def main():
+    #Ingreso al código
     nombre = (input('Ingresa tu nombre: '))
     print('\n')
     print(f'¡Hola {nombre}! ¿qué deseas conocer?')
     print('IMC= 1     Gráficax=2        Gráficaxx=3    Salir=4')
     num = int(input())
+
+    #Para que se pueda escojer a dónde ir
     while num != 4:
         if num == 1:
             variableimc = imc(nombre, num)
@@ -208,7 +233,7 @@ def main():
             g = grafica_mexico(num)
             num = g
         elif num == 3:
-            g = grafica_mundo(num)
+            g = grafica_america(num)
             num = g
         else:
             print('Favor de ingresar un dato válido')

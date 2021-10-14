@@ -306,7 +306,7 @@ def main():
             variableimc = imc(nombre, num)
             num = variableimc[1]
         elif num == 2:
-            g = promedio_mundial(num)(num)
+            g = promedio_mundial(num)
             num = g
         elif num == 3:
             g = sobrepeso_america(num)

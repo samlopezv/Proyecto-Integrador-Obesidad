@@ -1,7 +1,8 @@
 from matplotlib import pyplot as plt
 from matplotlib import numpy as np
+from tabulate import tabulate
 
-def grafica_america(num):
+def sobrepeso_america(num):
     paises=[]
     sexes=[]
     male=[]
@@ -10,6 +11,8 @@ def grafica_america(num):
     female=[]
     porcentajefemale=[]
     dato=[]
+    matriz=[]
+    tabla=[]
 
     with open ('/workspace/Proyecto-Integrador-Obesidad/assignments/00Archivos/data/Sobrepeso en América 2016.csv', 'r') as america:
        #Matrices para cada colmna
@@ -33,6 +36,25 @@ def grafica_america(num):
         porcentaje = ( float(female[i]) * float(sexes[i])) / ( float(male[i]) + float(female[i]))
         porcentajefemale.append(porcentaje)
 
+    print('\n')
+    print('Sobrepeso en países de América en 2016')
+    print('\n')
+    print('A continuación se muestran los países con sus respectivos porcentajes')
+    print('\n')
+
+    #Tabla
+    for i in range (len(paises)):
+        matriz.append (paises[i])
+        matriz.append (str(round(float(sexes[i]))))
+        matriz.append (str(round(porcentajemale[i])))
+        matriz.append (str(round(porcentajefemale[i])))
+        tabla.append(matriz)
+        matriz=[]
+
+    print (tabulate(tabla, headers=['País', 'Porcentaje ambos sexos %', 'Porcentaje hombres %', 'Porcentaje mujeres %']))
+    
+    print('\n')
+    print('Ahora representaremos estos datos en la siguiente gráfica')
     #Código para la gráfica
     indice = np.arange(len(paises))
  
@@ -52,31 +74,22 @@ def grafica_america(num):
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
+    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(numnuevo)
 
 def grafica_mexico(num):
-    xregion=[]
-    ysobrepeso=[]
-    yobesidad=[]
-    dato=[]
 
-    with open ('/workspace/Proyecto-Integrador-Obesidad/assignments/00Archivos/data/Obesidad en méxico.csv', 'r') as mexico:
-        for line in mexico:
-            dato = line.split(',')
-            xregion.append(dato[0])
-            ysobrepeso.append(dato[1])
-            yobesidad.append(dato[2])
 
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
+    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(numnuevo)
     return()
 
+    
 
 def imc(nombre, num):
     #Pide datos para calcular el IMC
@@ -211,7 +224,7 @@ def imc(nombre, num):
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Graficaxx=3      Salir=4')
+    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(nombre, numnuevo)
 
@@ -221,7 +234,7 @@ def main():
     nombre = (input('Ingresa tu nombre: '))
     print('\n')
     print(f'¡Hola {nombre}! ¿qué deseas conocer?')
-    print('IMC= 1     Gráficax=2        Gráficaxx=3    Salir=4')
+    print('IMC= 1     Gráficax=2        Sobrepeso en América 2016=3    Salir=4')
     num = int(input())
 
     #Para que se pueda escojer a dónde ir
@@ -233,7 +246,7 @@ def main():
             g = grafica_mexico(num)
             num = g
         elif num == 3:
-            g = grafica_america(num)
+            g = sobrepeso_america(num)
             num = g
         else:
             print('Favor de ingresar un dato válido')

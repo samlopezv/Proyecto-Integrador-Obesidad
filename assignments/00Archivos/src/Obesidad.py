@@ -50,7 +50,6 @@ def sobrepeso_america(num):
         matriz.append (str(round(porcentajefemale[i])))
         tabla.append(matriz)
         matriz=[]
-
     print (tabulate(tabla, headers=['País', 'Porcentaje ambos sexos %', 'Porcentaje hombres %', 'Porcentaje mujeres %']))
     
     print('\n')

@@ -3,6 +3,10 @@ from matplotlib import numpy as np
 from tabulate import tabulate
 
 def sobrepeso_america(num):
+    print ("Listo para concer acerca del sobrepeso en América?")
+    print ("En esta sección podrás obtendras como resultado una tabla en la que podras observar")
+    print ("los porcentajes de sobre pero entre los hombres y mujeres y sus respectivos países de procedencia")
+
     paises=[]
     sexes=[]
     male=[]
@@ -77,8 +81,8 @@ def sobrepeso_america(num):
     numnuevo = int(input())
     return(numnuevo)
 
-def grafica_mexico(num):
-    print ("Bienvenido, ahora conoceras mas hacerca de los porcentajes de sobre peso y de bajo peso")
+def promedio_mundial(num):
+    print ("Bienvenido, ahora conoceras mas acerca de los porcentajes de sobre peso y de bajo peso")
     print ("alrededor de mundo! A lo que tenemos para tí estos importantes promedios")
     print ("Informe creado a base del DataSet MALNUTRITION ACROSS THE GLOBE")
     pais=[]
@@ -302,7 +306,7 @@ def main():
             variableimc = imc(nombre, num)
             num = variableimc[1]
         elif num == 2:
-            g = grafica_mexico(num)
+            g = promedio_mundial(num)(num)
             num = g
         elif num == 3:
             g = sobrepeso_america(num)

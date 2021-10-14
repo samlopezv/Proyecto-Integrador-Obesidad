@@ -73,7 +73,7 @@ def sobrepeso_america(num):
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
+    print('IMC= 1     Promedio mundial (Sobrepeso y bajo peso)=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(numnuevo)
 
@@ -83,7 +83,7 @@ def grafica_mexico(num):
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
+    print('IMC= 1     Promedio mundial (Sobrepeso y bajo peso)=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(numnuevo)
     return()
@@ -223,7 +223,7 @@ def imc(nombre, num):
     print('\n')
     print('Volver al menú Enter')
     enter = input()
-    print('IMC= 1     Gráficax=2    Sobrepeso en América 2016=3      Salir=4')
+    print('IMC= 1     Promedio mundial (Sobrepeso y bajo peso)=2    Sobrepeso en América 2016=3      Salir=4')
     numnuevo = int(input())
     return(nombre, numnuevo)
 
@@ -233,7 +233,7 @@ def main():
     nombre = (input('Ingresa tu nombre: '))
     print('\n')
     print(f'¡Hola {nombre}! ¿qué deseas conocer?')
-    print('IMC= 1     Gráficax=2        Sobrepeso en América 2016=3    Salir=4')
+    print('IMC= 1     Promedio mundial (Sobrepeso y bajo peso)=2        Sobrepeso en América 2016=3    Salir=4')
     num = int(input())
 
     #Para que se pueda escojer a dónde ir

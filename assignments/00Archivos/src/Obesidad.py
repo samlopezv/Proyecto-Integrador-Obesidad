@@ -78,7 +78,67 @@ def sobrepeso_america(num):
     return(numnuevo)
 
 def grafica_mexico(num):
+    print ("Bienvenido, ahora conoceras mas hacerca de los porcentajes de sobre peso y de bajo peso")
+    print ("alrededor de mundo! A lo que tenemos para tí estos importantes promedios")
+    print ("Informe creado a base del DataSet MALNUTRITION ACROSS THE GLOBE")
+    pais=[]
+    incomeC=[]
+    severew=[]
+    wasting=[]
+    overweight=[]
+    stuning=[]
+    underweight=[]
+    u5=[]
 
+    with open ('assignments/00Archivos/data/contriesPyton.csv','r') as mundo:
+    #matrices por columna
+        for line in mundo:
+            lista_line=line.split(",")
+            pais.append(lista_line[0])
+            incomeC.append(lista_line[1])
+            severew.append(lista_line[2])
+            wasting.append(lista_line[3])
+            overweight.append(lista_line[4])
+            stuning.append(lista_line[5])
+            underweight.append(lista_line[6])
+            u5.append(lista_line[7])
+    
+    
+    #Quitamos los titulos para los calculos 
+    pais.pop(0)
+    incomeC.pop(0)
+    severew.pop(0)
+    wasting.pop(0)
+    overweight.pop(0)
+    stuning.pop(0)
+    underweight.pop(0)
+    u5.pop(0)
+    
+    #Sacamos promedio
+    promedio1 = 1073.044058 / len(overweight)
+    promedio1r= round(promedio1)
+    print('\n')
+    print(f"El porcentaje promedio mundial de personas con sobrepeso es de {promedio1}%")
+    print(f"Cifra redondeada a {promedio1r}%")
+    print('\n')
+
+    promedio2=2025.457006/len(underweight)
+    promedio2r=round(promedio2)
+    print(f"El porcentaje promedio mundial de personas con peso bajo es de {promedio2}%")
+    print(f"Cifra redondeada a {promedio2r}%")
+
+    print('\n')
+    print('VAMOS A CONOCER UN POCO MÁS!!')
+    print ("¿Sabes que es el Severe wasting?")
+    print ("Básicamente es la mal nutrición")
+    print ("No confundamos mal nutrición con bajo peso, las causas puden ser muy difenretes")
+    promedio3 = 303.6109573/len(severew)
+    promedio3r=round(promedio3)
+    print(f"El porcentaje promedio mundial de personas con Severe Wasting es de {promedio3}%")
+    print(f"Cifra redondeada a {promedio3r}%")
+    print('\n')
+    print ("Espero y hayas aprendido un poco! Sigue llenando tu cabeza de conocimiento")
+    print("Es importante conocer acerca de estos temas, continúa para seguir aprendiendo")
 
     print('\n')
     print('Volver al menú Enter')
